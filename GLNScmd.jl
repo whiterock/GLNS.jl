@@ -14,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-using GLNS
+include("./src/GLNS.jl")
+
+using .GLNS
 
 """
 Optional Flags -- values are given in square brackets []  

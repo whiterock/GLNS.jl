@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+using GZip
 #########  Input Parsing ############################
 
 """
@@ -54,8 +56,12 @@ function read_file(filename)
     num_sets = -1
 
     # parse
-    s = open(filename, "r")
-    for line in readlines(s)
+    if endswith(filename, ".gz")
+        s = GZip.open(filename)
+    else
+        s = open(filename, "r")
+    end
+    for line in eachline(s)
         line = strip(line)
         # debug
 #        println(line)
