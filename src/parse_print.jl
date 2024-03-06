@@ -14,6 +14,7 @@
 
 
 using GZip
+using CodecZstd
 #########  Input Parsing ############################
 
 """
@@ -58,6 +59,8 @@ function read_file(filename)
     # parse
     if endswith(filename, ".gz")
         s = GZip.open(filename)
+    elseif endswith(filename, ".zst")
+        s = ZstdDecompressorStream(open(filename, "r"))
     else
         s = open(filename, "r")
     end
