@@ -1,3 +1,6 @@
+> [!NOTE]
+> This software has been modified from the repository it was forked from in order to be able to read in GTSPLIB instance files that were compressed using either GZip or ZStd. It naively does this by looking at the file extension and whether it ends in ".gz" or ".zst" respectively. Thus there are also additional dependencies, namely GZip.jl and CodecZstd.jl.
+
 # GLNS
 
 GLNS is a solver for the Generalized Traveling Salesman Problem (GTSP), implemented in Julia (<http://julialang.org/>).
